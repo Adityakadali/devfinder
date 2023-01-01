@@ -1,7 +1,10 @@
-const Searchbar = () => {
+const Searchbar = ({ userName, setUserName, fetchUserdata }) => {
   return (
-    <div className="mt-8 rounded-lg bg-slate-800 p-2 shadow-lg">
-      <form className="flex w-[42rem] items-center justify-between">
+    <div className="mt-8 w-[42rem] rounded-lg bg-slate-800 p-2 shadow-md">
+      <form
+        className="flex  items-center justify-between"
+        onSubmit={fetchUserdata}
+      >
         <div className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +24,8 @@ const Searchbar = () => {
             name="serach"
             id=""
             placeholder="Search Github username..."
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
           />
         </div>
         <button
