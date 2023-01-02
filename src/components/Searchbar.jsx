@@ -1,6 +1,6 @@
 const Searchbar = ({ userName, setUserName, fetchUserdata }) => {
   return (
-    <div className="mt-8 w-[42rem] rounded-lg bg-slate-800 p-2 shadow-md">
+    <div className="mt-8 w-[60rem] rounded-lg bg-slate-800 p-2 shadow-md">
       <form
         className="flex  items-center justify-between"
         onSubmit={fetchUserdata}
@@ -19,7 +19,7 @@ const Searchbar = ({ userName, setUserName, fetchUserdata }) => {
             />
           </svg>
           <input
-            className="w-96 bg-slate-800 px-3 py-2 text-xl focus:outline-none"
+            className="w-[48rem] bg-slate-800 px-3 py-2 text-xl focus:outline-none"
             type="search"
             name="serach"
             id=""

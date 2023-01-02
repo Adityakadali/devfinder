@@ -1,6 +1,16 @@
+import { useState } from "react";
 import Searchbar from "./components/Searchbar";
+import Usercard from "./components/UserCard";
 
 function App() {
+  const [userdata, setUserData] = useState("");
+  const [userName, setUserName] = useState("");
+  const fetchUserdata = async (e) => {
+    e.preventDefault();
+    const data = await fetch(`https://api.github.com/users/${userName}`);
+    const user = await data.json();
+    setUserData(user);
+  };
   return (
     <div className="grid min-h-screen w-screen place-content-center">
       <div className="flex items-center justify-between">
@@ -17,7 +27,12 @@ function App() {
           </svg>
         </span>
       </div>
-      <Searchbar />
+      <Searchbar
+        userName={userName}
+        setUserName={setUserName}
+        fetchUserdata={fetchUserdata}
+      />
+      <Usercard userdata={userdata} />
     </div>
   );
 }
